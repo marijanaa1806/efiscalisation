@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/ngx-simple-modal/styles/simple-modal.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.modal-content {
+    max-width: 400px;
+  }
+  
+  .modal-content-size-m {
+    max-width: 992px;
+  }
+  
+  .modal-content-size-l {
+    max-width: 1200px;
+  }
+  
+  .modal-footer, .modal-header {
+    height: 56px;
+    padding: 0 16px;
+  }
+  
+  .modal-header {
+    background-color: #cecece;
+    border-bottom: 1px solid #cecece;
+  }
+  
+  .modal-body {
+    padding: 16px;
+  }
+  
+  .modal-footer {
+    background-color: #ee6060;
+    border-top: 1px solid #ee6060;
+  }
+  
+  .btn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+  }
