@@ -1,0 +1,161 @@
+[{
+  "_id": {
+    "$oid": "62cff1d1e142912a3351d8d4"
+  },
+  "magacin": "1",
+  "nabavna": "100",
+  "prodajna": "120",
+  "max": 150,
+  "min": 100,
+  "stanje": 12,
+  "nazivm": "Mag1",
+  "artikal": "536",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "peki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cff1eee142912a3351d8d8"
+  },
+  "magacin": "1",
+  "nabavna": "800",
+  "prodajna": "1050",
+  "max": 1200,
+  "min": 800,
+  "stanje": 8,
+  "nazivm": "Mag1",
+  "artikal": "456",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "peki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cff399e142912a3351d8f4"
+  },
+  "magacin": "1",
+  "nabavna": "100",
+  "prodajna": "130",
+  "max": 150,
+  "min": 100,
+  "stanje": 3,
+  "nazivm": "Mag1",
+  "artikal": "1111",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "peki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d002d8a825ef5e715ed876"
+  },
+  "magacin": "2",
+  "nabavna": "90",
+  "prodajna": "100",
+  "max": 150,
+  "min": 90,
+  "stanje": 8,
+  "nazivm": "magacin2",
+  "artikal": "2256",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "meki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d002e3a825ef5e715ed87a"
+  },
+  "magacin": "3",
+  "nabavna": "90",
+  "prodajna": "100",
+  "max": 150,
+  "min": 90,
+  "stanje": 5,
+  "nazivm": "magacin3",
+  "artikal": "2256",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "meki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d002f0a825ef5e715ed87e"
+  },
+  "magacin": "3",
+  "nabavna": "90",
+  "prodajna": "100",
+  "max": 150,
+  "min": 90,
+  "stanje": 6,
+  "nazivm": "magacin3",
+  "artikal": "65652",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "meki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d00308a825ef5e715ed882"
+  },
+  "magacin": "1",
+  "nabavna": "100",
+  "prodajna": "120",
+  "max": 130,
+  "min": 100,
+  "stanje": 20,
+  "nazivm": "magacin1",
+  "artikal": "98656",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "meki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d0126ad6ace676143fca56"
+  },
+  "magacin": "1",
+  "nabavna": "100",
+  "prodajna": "150",
+  "max": 180,
+  "min": 100,
+  "stanje": 13,
+  "nazivm": "magacin1",
+  "artikal": "555",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "meki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d0137bd6ace676143fca9f"
+  },
+  "magacin": "1",
+  "nabavna": "90",
+  "prodajna": "130",
+  "max": 150,
+  "min": 90,
+  "stanje": 12,
+  "nazivm": "Mag1",
+  "artikal": "6939",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "peki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d01596d6ace676143fcae8"
+  },
+  "magacin": "1",
+  "nabavna": "500",
+  "prodajna": "700",
+  "max": 800,
+  "min": 500,
+  "stanje": 18,
+  "nazivm": "Mag1",
+  "artikal": "9696",
+  "selected": false,
+  "kolicina": 0,
+  "preduzece": "peki",
+  "__v": 0
+}]

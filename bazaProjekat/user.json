@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "62cfdde581ead294c661b32a"
+  },
+  "kor_ime": "maki",
+  "lozinka": "Maca*12345",
+  "ime": "Marijana",
+  "prezime": "Vacic",
+  "mejl": "marijana@gmail.com",
+  "tip": "a",
+  "broj": "0692314344",
+  "brLk": 0
+},{
+  "_id": {
+    "$oid": "62cfe2c6e32762562cf0d0b6"
+  },
+  "kor_ime": "poki",
+  "lozinka": "Poki*1234",
+  "ime": "Ivana",
+  "prezime": "Milicevic",
+  "tip": "k",
+  "broj": "0648899625",
+  "brLk": 1023125,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cfec28d7577db770c1660e"
+  },
+  "kor_ime": "peki",
+  "lozinka": "Petar*123",
+  "ime": "Petar",
+  "prezime": "Radivojevic",
+  "mejl": "pekica@gmail.com",
+  "tip": "p",
+  "broj": "0658830263",
+  "brLk": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cfef45d7577db770c16687"
+  },
+  "kor_ime": "meki",
+  "lozinka": "Meli*12345",
+  "ime": "Melanija",
+  "prezime": "Savic",
+  "mejl": "melki@gmail.com",
+  "tip": "p",
+  "broj": "0604799853",
+  "brLk": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d00115a825ef5e715ed84b"
+  },
+  "kor_ime": "jeca",
+  "lozinka": "Jecika*123",
+  "ime": "Jelena",
+  "prezime": "Jelic",
+  "tip": "k",
+  "broj": "0633355920",
+  "brLk": 2568895,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d019e5d6ace676143fcb48"
+  },
+  "kor_ime": "laki",
+  "lozinka": "Laki*123",
+  "ime": "Lazar",
+  "prezime": "Lazic",
+  "mejl": "lakili@gmail.com",
+  "tip": "p",
+  "broj": "0623366895",
+  "brLk": 0,
+  "__v": 0
+}]

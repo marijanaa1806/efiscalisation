@@ -1,0 +1,181 @@
+[{
+  "_id": {
+    "$oid": "62cff412e142912a3351d906"
+  },
+  "naziv": "Basta",
+  "stolovi": [
+    {
+      "ids": 3,
+      "xkoor": 617,
+      "ykoor": 143,
+      "sirina": 100,
+      "visina": 100,
+      "oblik": "pravougaonik",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62cff444e142912a3351d912"
+      }
+    },
+    {
+      "ids": 4,
+      "xkoor": 369,
+      "ykoor": 215,
+      "sirina": 50,
+      "visina": 50,
+      "oblik": "krug",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62cff477e142912a3351d916"
+      }
+    },
+    {
+      "ids": 1,
+      "xkoor": 138,
+      "ykoor": 109,
+      "sirina": 30,
+      "visina": 30,
+      "oblik": "krug",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62cff588e142912a3351d926"
+      }
+    },
+    {
+      "ids": 2,
+      "xkoor": 517,
+      "ykoor": 423,
+      "sirina": 100,
+      "visina": 70,
+      "oblik": "pravougaonik",
+      "zauzet": true,
+      "_id": {
+        "$oid": "62cff59ee142912a3351d928"
+      }
+    }
+  ],
+  "preduzece": "peki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cff419e142912a3351d90a"
+  },
+  "naziv": "Restoran",
+  "stolovi": [
+    {
+      "ids": 5,
+      "xkoor": 83,
+      "ykoor": 308,
+      "sirina": 50,
+      "visina": 50,
+      "oblik": "krug",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62cff4cce142912a3351d91c"
+      }
+    },
+    {
+      "ids": 6,
+      "xkoor": 319,
+      "ykoor": 334,
+      "sirina": 100,
+      "visina": 100,
+      "oblik": "pravougaonik",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62cff4dce142912a3351d91e"
+      }
+    },
+    {
+      "ids": 7,
+      "xkoor": 577,
+      "ykoor": 114,
+      "sirina": 100,
+      "visina": 100,
+      "oblik": "krug",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62cff4f2e142912a3351d920"
+      }
+    }
+  ],
+  "preduzece": "peki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d00389a825ef5e715ed897"
+  },
+  "naziv": "Basta",
+  "stolovi": [
+    {
+      "ids": 1,
+      "xkoor": 488,
+      "ykoor": 378,
+      "sirina": 80,
+      "visina": 80,
+      "oblik": "pravougaonik",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62d0039ba825ef5e715ed89b"
+      }
+    },
+    {
+      "ids": 2,
+      "xkoor": 178,
+      "ykoor": 143,
+      "sirina": 80,
+      "visina": 80,
+      "oblik": "krug",
+      "zauzet": true,
+      "_id": {
+        "$oid": "62d003a7a825ef5e715ed89d"
+      }
+    }
+  ],
+  "preduzece": "meki",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d003c4a825ef5e715ed89f"
+  },
+  "naziv": "Sala",
+  "stolovi": [
+    {
+      "ids": 3,
+      "xkoor": 455,
+      "ykoor": 75,
+      "sirina": 50,
+      "visina": 50,
+      "oblik": "krug",
+      "zauzet": true,
+      "_id": {
+        "$oid": "62d003cea825ef5e715ed8a3"
+      }
+    },
+    {
+      "ids": 4,
+      "xkoor": 286,
+      "ykoor": 423,
+      "sirina": 70,
+      "visina": 100,
+      "oblik": "pravougaonik",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62d003dda825ef5e715ed8a5"
+      }
+    },
+    {
+      "ids": 5,
+      "xkoor": 642,
+      "ykoor": 260,
+      "sirina": 50,
+      "visina": 80,
+      "oblik": "krug",
+      "zauzet": false,
+      "_id": {
+        "$oid": "62d003eda825ef5e715ed8a7"
+      }
+    }
+  ],
+  "preduzece": "meki",
+  "__v": 0
+}]
