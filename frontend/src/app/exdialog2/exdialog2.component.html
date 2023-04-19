@@ -1,0 +1,25 @@
+
+<div mat-dialog-title>Unesite izgled stola</div>
+<div mat-dialog-content>
+
+
+    id stola 
+    <input type="text" [(ngModel)]="data.ids" required>
+    <br>
+    Sirina 
+    <input type="number" [(ngModel)]="data.sirina" required>
+    <br>
+    visina:
+    <input type="number" [(ngModel)]="data.visina" required>
+    <br>
+    oblik 
+    <input type="text" [(ngModel)]="data.oblik" required>
+    <br>
+ 
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Otkazi</button>
+  <button mat-raised-button [mat-dialog-close]="data">Dodaj</button>
+  
+</div>

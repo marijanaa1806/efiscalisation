@@ -1,0 +1,28 @@
+<body>
+    <div class="header">
+        <h2>Prijava administratora</h2>
+    </div>
+<div class="card">
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type='text' name='kor_ime' [(ngModel)]='kor_ime'>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type='password' name='lozinka' [(ngModel)]='lozinka' >
+        </td>
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)="login()">Prijava</button>
+        </td>
+    </tr>
+</table>
+<span style='color: red'>{{greska}}</span>
+</div>
+<div class="footer"></div>
+</body>

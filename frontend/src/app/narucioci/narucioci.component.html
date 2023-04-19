@@ -1,0 +1,127 @@
+<body>
+    <div class="header">
+        <h1>
+           Narucioci
+        </h1>
+    </div>
+    <div class="card">
+        <h2>Registracija preduzeca</h2>
+        <table>
+            <tr>
+                <td>Korisnicko ime:</td>
+                <td>
+                    <input type='text' name='kor_imeR' [(ngModel)]='kor_imeR'>
+                </td>
+            </tr>
+            <tr>
+                <td>Lozinka:</td>
+                <td>
+                    <input type='password' name='lozinkaR' [(ngModel)]='lozinkaR' >
+                </td>
+            </tr>
+            <tr>
+                <td>Potvrda Lozinke:</td>
+                <td>
+                    <input type='password' name='lozinka' [(ngModel)]='lozinkaR2' >
+                </td>
+            </tr>
+            <tr>
+                <td>Ime:</td>
+                <td>
+                    <input type='text' name='ime' [(ngModel)]='imeR'>
+                </td>
+            </tr>
+            <tr>
+                <td>Prezime:</td>
+                <td>
+                    <input type='text' name='prez' [(ngModel)]='prezimeR'>
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>
+                    <input type='email' name='mejl' [(ngModel)]='mejlR'>
+                </td>
+            </tr>
+            <tr>
+                <td>Broj telefona:</td>
+                <td>
+                    <input type='text' name='br' [(ngModel)]='brojR'>
+                </td>
+            </tr>
+            <tr>
+                <td>Naziv preduzeca:</td>
+                <td>
+                    <input type='text' name='naz' [(ngModel)]='nazivR'>
+                </td>
+            </tr>
+            <tr>
+                <td>Drzava:</td>
+                <td>
+                    <input type='text' name='adre' [(ngModel)]='drzava'>
+                </td>
+            </tr>
+            <tr>
+                <td>Grad:</td>
+                <td>
+                    <input type='text' name='adre' [(ngModel)]='grad'>
+                </td>
+            </tr>
+            <tr>
+                <td>Postanski broj:</td>
+                <td>
+                    <input type='text' name='adre' [(ngModel)]='posbr'>
+                </td>
+            </tr>
+            <tr>
+                <td>Ulica:</td>
+                <td>
+                    <input type='text' name='adre' [(ngModel)]='ulica'>
+                </td>
+            </tr>
+            <tr>
+                <td>Broj:</td>
+                <td>
+                    <input type='text' name='adre' [(ngModel)]='ubroj'>
+                </td>
+            </tr>
+            <tr>
+                <td>PIB:</td>
+                <td>
+                    <input type='text' name='pib' [(ngModel)]='pib'>
+                </td>
+            </tr>
+            <tr>
+                <td>Maticni broj:</td>
+                <td>
+                    <input type='text' name='mat' [(ngModel)]='mat'>
+                </td>
+            </tr>
+            <tr>
+                <input type="file" (change)="selectFile($event)">
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <button (click)="register()">Registracija</button>
+                </td>
+            </tr>
+        </table>
+        Broj dana:
+        <input type="text" [(ngModel)]="brojd">
+        <br>
+        Procenat rabata:
+        <input type="text" [(ngModel)]="rab">
+        <br>
+        Unesi pib za pretragu:
+        <br>
+        <input type="text" [(ngModel)]="searchparam">
+        <button (click)="search()">Pretrazi</button>
+        <br>
+        <br>
+        <button (click)="unos()">Unesi narucioca</button>
+    </div>
+    <div class="footer">
+        <a routerLink="/preduzece">Vrati se</a>
+        <button (click)="logout()">Odjavi se</button>
+    </div>
+</body>

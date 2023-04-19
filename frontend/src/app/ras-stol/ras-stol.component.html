@@ -1,0 +1,32 @@
+<body>
+    <div class="header">
+        <h1>Raspored stolova</h1>
+        <ul>
+            
+            <li *ngFor="let ob of objekti" style="float:left">
+
+              <button mat-button (click)="izberiod(ob)">{{ob.naziv}}</button>
+            </li>
+            <button mat-button (click)="odelj()">Unesi novo odeljenje</button>
+            
+          </ul>
+          <div *ngIf="odlj">
+
+            Unesi naziv novog odeljenja:
+            <input type="text" [(ngModel)]="nazivod">
+            <button mat-button (click)="unesiod()">Unesi</button>
+          </div>
+          <button mat-button (click)="openDialog()">Dodaj novi sto</button>
+          
+          <button mat-button (click)="pomeri()">Pomeri sto</button>
+        </div>
+    <div class="card" (click)="getPosition($event)">
+        <canvas #canvasEl width="900" height="900"></canvas>
+    </div>
+   
+    <div class="footer">
+      <a routerLink="/preduzece">Vrati se</a>
+      <button (click)="logout()">Odjavi se</button>
+  </div>
+
+</body>

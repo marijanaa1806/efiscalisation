@@ -1,0 +1,44 @@
+<div class="header"> <h1>
+Pregled izvestaja
+</h1></div>
+<div class="card"> 
+  <h2> Dnevni izvestaj za {{dan}}</h2> 
+    <table>
+        <tr> <th>iznos</th> 
+            <th>porez</th>
+        </tr>
+        <tr> <td>
+{{pazar.iznos}}
+        </td>
+        <td> {{pazar.porez}}</td>
+    </tr>
+    </table>
+    <br>
+    <br>
+    <h2>
+        Pregled po racunima
+    </h2>
+    <table>
+        <tr>
+            <th>racun</th>
+            <th>datum</th>
+            <th>iznos</th>
+            <th>stavke</th>
+        </tr>
+        <tr *ngFor="let rac of racuni">
+            <td>{{rac.idS}}</td>
+            <td>{{rac.datum}}</td>
+            <td>{{rac.iznos}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let st of rac.stavke">{{st.nazAr}} - {{st.kolicina}}</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="footer">
+    <a routerLink="/preduzece">Vrati se</a>
+    <button (click)="logout()">Odjavi se</button>
+</div>
+

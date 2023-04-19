@@ -1,0 +1,26 @@
+<body>
+    <div class="header">
+        <h1>Raspored artikala</h1></div>
+    <div class="card">
+        Kategorija:
+        <input type="text" [(ngModel)]="nazivK">
+        <br>
+        Potkategorija:
+        <input type="text" [(ngModel)]="nazivpk">
+     
+        <br>
+        <br>
+
+        
+          <button mat-raised-button (click)="openDialog()">
+            Dodeli artikal
+        </button>
+        <br>
+       
+    </div>
+    <div class="footer">
+        <a routerLink="/preduzece">Vrati se</a>
+        <button (click)="logout()">Odjavi se</button>
+    </div>
+</body>
+<router-outlet></router-outlet>

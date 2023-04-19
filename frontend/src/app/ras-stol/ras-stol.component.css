@@ -1,0 +1,30 @@
+
+.header{
+
+    background-color: rgb(28, 231, 187);
+    padding: 10px;
+    text-align: center;
+}
+.footer{
+    background-color: aquamarine;
+    padding: 10px;
+    text-align: right;
+
+}
+.card {
+   
+    padding: 20px;
+    background-image: url(src/assets/tile.jpg);
+    height:100%
+    
+  }
+  ul,li{
+    display: inline-block;
+  }
+  li{
+    background-color: darkgray;
+    border-color: aliceblue;
+  }
+  li:hover{
+    background-color: bisque;
+  }

@@ -1,0 +1,74 @@
+
+<div class="header">
+<h1>Pregled mojih racuna</h1>
+</div>
+<div class="card">
+    Unesi broj licne karte:
+    <input type="text" [(ngModel)]="lk">
+    <button (click)="nadji()">Nadji moje racune</button>
+    <br>
+    <div *ngIf="prikaz">
+        <table>
+            <tr>
+
+                <th>preduzece</th>
+                <th>objekat</th>
+                <th>iznos</th>
+                <th>nacin placanja</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let r of mojiRac">
+
+                <td>{{r.preduz}}</td>
+                <td>{{r.objekat}}</td>
+                <td>{{r.iznos}}</td>
+                <td>{{r.nacinPlacanja}}</td>
+                <td>
+                    <button (click)="detalji(r)">Detalji</button>
+                </td>
+            </tr>
+        </table>
+        <div *ngIf="det">
+           <table>
+            <tr>
+
+                <th>sto</th>
+                <th>datum</th>
+                <th>porez</th>
+                <th>dato</th>
+                <th>kusur</th>
+                <th>ime</th>
+                <th>prezime</th>
+                <th>slip</th>
+                <th>narucilac</th>
+                <th>stavke</th>
+            </tr>
+            <tr>
+
+                <td>{{rac.idS}}</td>
+                <td>{{rac.datum}}</td>
+                <td>{{rac.porez}}</td>
+                <td>{{rac.dato}}</td>
+                <td>{{rac.kusur}}</td>
+                <td>
+                    {{rac.ime}}
+                </td>
+                <td>{{rac.prezime}}</td>
+                <td>{{rac.slip}}</td>
+                <td>{{rac.narucilac}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let st of rac.stavke">{{st.nazAr}} - {{st.kolicina}}</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <a routerLink="/korisnik">Vrati se</a>
+    <button (click)="logout()">Odjavi se</button>
+</div>

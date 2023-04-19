@@ -1,0 +1,384 @@
+<body>
+    <div class="header">
+        <h1>
+            Robe i usluge
+        </h1>
+    </div>
+    <div class="card">
+        Artikli - ukupno redova {{num}}
+       
+        <mat-table  [dataSource]="dataSource">
+            <ng-container matColumnDef="sifra">
+              <mat-header-cell *matHeaderCellDef> sifra. </mat-header-cell>
+              <mat-cell *matCellDef="let artikl"> {{artikl.sifra}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="naziv">
+              <mat-header-cell *matHeaderCellDef> naziv </mat-header-cell>
+              <mat-cell *matCellDef="let artikl"> {{artikl.naziv}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="jedinica">
+              <mat-header-cell *matHeaderCellDef> jedinica </mat-header-cell>
+              <mat-cell *matCellDef="let artikl"> {{artikl.jedinica}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="stopa">
+              <mat-header-cell *matHeaderCellDef> stopa </mat-header-cell>
+              <mat-cell *matCellDef="let artikl"> {{artikl.stopa}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="proizvodjac">
+                <mat-header-cell *matHeaderCellDef> proizvodjac </mat-header-cell>
+                <mat-cell *matCellDef="let artikl"> {{artikl.proizvodjac}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="slika">
+                <mat-header-cell *matHeaderCellDef> slika </mat-header-cell>
+                <mat-cell *matCellDef="let artikl"> <div><img [src]="artikl.slika" ></div> </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="izmena">
+                <mat-header-cell *matHeaderCellDef> izmeni </mat-header-cell>
+                <mat-cell *matCellDef="let artikl">  <button mat-button (click)="iz(artikl)">Izmeni</button> </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="brisanje">
+                <mat-header-cell *matHeaderCellDef> obrisi  </mat-header-cell>
+                <mat-cell *matCellDef="let artikl">  <button mat-button (click)="openDialog(artikl)">Obrisi</button>  </mat-cell>
+              </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let artikl; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        <mat-paginator [length]="artikl.length"
+                [pageSize]="10"
+                style="background-color:rgb(180, 237, 204);color:black">
+</mat-paginator>
+<button (click)="un()">Unos</button>
+      <div *ngIf="showinp">
+        <mat-tab-group >
+            <mat-tab label="Opsti podaci" >
+                <table>
+                    <tr>
+                        <th>sifra</th>
+                       <th>naziv</th>
+                       <th>jedinica</th>
+                       <th>stopa</th>
+                       <th *ngIf="ugostitelj">tip</th>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" [(ngModel)]="sif">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="naz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="jed">
+                        </td>
+                        <td>
+                            <select [(ngModel)]="stop"><br/>
+                                <option value="20">20%</option>
+                                <option value="10">10%</option>
+                                <option value="0">0%</option>
+                            </select><br/>
+                           
+                        </td>
+                        <td *ngIf="ugostitelj">
+                            <div >
+                                Tip artikla:<br/>
+                                <input type="radio" id="hrana" name="tip" value="hrana" [(ngModel)]="tip">
+                                <label for="hrana">hrana</label>
+                                <input type="radio" id="pice" name="tip" value="pice" [(ngModel)]="tip">
+                                <label for="pice">pice</label>
+                                <input type="radio" id="sirovina" name="tip" value="sirovina" [(ngModel)]="tip">
+                                <label for="sirovina">sirovina</label><br/>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <input type="file" (change)="selectFile($event)">
+                    </tr>
+                </table>
+            </mat-tab>
+            <mat-tab label="Dopunski podaci" >
+                <table>
+                    <tr>
+                        <th>zemlja porekla</th>
+                       <th>strani naziv</th>
+                       <th>barkod</th>
+                       <th>naziv proizvodjaca</th>
+                       <th>carinska tarifa</th>
+                       <th>eko taksa</th>
+                       <th>akcize</th>
+                       <th>minimalni</th>
+                       <th>maksimalni</th>
+                       <th>opis</th>
+                       <th>deklaracija</th>
+                       <th>dopuni</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" [(ngModel)]="zp">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="strnaz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="barkod">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="proiz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="ct">
+                        </td>
+                        <td>
+                            <input type="checkbox" [(ngModel)]="ekot">
+                        </td>
+                        <td>
+                            <input type="checkbox" [(ngModel)]="akcz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="min">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="max">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="opis">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="dekl">
+                        </td>
+                        <td>
+                            <button (click)="dodaj()">dodaj</button>
+                        </td>
+                    </tr>
+                    </table>
+            </mat-tab>
+            <mat-tab label="Cene i stanje robe" >
+               
+                <table>
+                    <tr>
+                        <th>id magacina</th>
+                        <th>naziv magacina</th>
+                        <th>maloprodajna cena</th>
+                        <th>nabavna cena</th>
+                        <th>maksimalna cena</th>
+                        <th>minimalna cena</th>
+                        <th>stanje</th>
+                        <th>sifra artikla</th>
+                      
+                    </tr>
+                   
+                    <tr>
+
+                        <td>
+                            <select [(ngModel)]="mag">
+                                <option *ngFor="let n of magac" value="{{n.id}}">{{n.id}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select [(ngModel)]="nazivmag">
+                                <option *ngFor="let n of magac" value="{{n.naziv}}">{{n.naziv}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="prod">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="nab">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="maxc">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="minc">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="stanje">
+                        </td>
+                        <td>
+                            <select [(ngModel)]="sifAr">
+                                <option *ngFor="let n of artikl" value="{{n.sifra}}">{{n.sifra}}</option>
+                            </select>
+                        </td>
+                       
+                    </tr>
+                    
+                </table>
+                <button (click)="unesirobu()">Unesi robu u magacin</button>
+                <br>
+                Pregled robe:
+                <table>
+                    <tr>
+                        <th>id magacina</th>
+                        <th>naziv magacina</th>
+                        <th>maloprodajna cena</th>
+                        <th>nabavna cena</th>
+                        <th>maksimalna cena</th>
+                        <th>minimalna cena</th>
+                        <th>stanje</th>
+                        <th>sifra artikla</th>
+                    </tr>
+                    <tr *ngFor="let rb of mojeRobe">
+                        <td>{{rb.magacin}}</td>
+                        <td>{{rb.nazivm}}</td>
+                        <td>{{rb.prodajna}}</td>
+                        <td>{{rb.nabavna}}</td>
+                        <td>{{rb.max}}</td>
+                        <td>{{rb.min}}</td>
+                        <td>{{rb.stanje}}</td>
+                        <td>{{rb.artikal}}</td>
+                    </tr>
+                </table>
+            </mat-tab>
+        </mat-tab-group>
+      </div>    
+      <div *ngIf="izm">
+        <mat-tab-group >
+            <mat-tab label="Opsti podaci" >
+                <table>
+                    <tr>
+                        <th>sifra</th>
+                       <th>naziv</th>
+                       <th>jedinica</th>
+                       <th>stopa</th>
+                       <th *ngIf="ugostitelj">tip</th>
+                       
+                    </tr>
+                    <tr>
+                       {{izmsif}}
+                        <td>
+                            <input type="text" [(ngModel)]="izmnaz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izmjed">
+                        </td>
+                        <td>
+                            <select [(ngModel)]="izmsto"><br/>
+                                <option value="20">20%</option>
+                                <option value="10">10%</option>
+                                <option value="0">0%</option>
+                            </select><br/>
+                           
+                        </td>
+                        <td>
+                            <div *ngIf="ugostitelj">
+                                Tip artikla:<br/>
+                                <input type="radio" id="hrana" name="tip" value="hrana" [(ngModel)]="iztip">
+                                <label for="hrana">hrana</label>
+                                <input type="radio" id="pice" name="tip" value="pice" [(ngModel)]="iztip">
+                                <label for="pice">pice</label>
+                                <input type="radio" id="sirovina" name="tip" value="sirovina" [(ngModel)]="iztip">
+                                <label for="sirovina">sirovina</label><br/>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </mat-tab>
+            <mat-tab label="Dopunski podaci" >
+                <table>
+                    <tr>
+                        <th>zemlja porekla</th>
+                       <th>strani naziv</th>
+                       <th>barkod</th>
+                       <th>naziv proizvodjaca</th>
+                       <th>carinska tarifa</th>
+                       <th>eko taksa</th>
+                       <th>akcize</th>
+                       <th>minimalni</th>
+                       <th>maksimalni</th>
+                       <th>opis</th>
+                       <th>deklaracija</th>
+                       <th>dopuni</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" [(ngModel)]="izzp">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izstrnaz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izbarkod">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izproiz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izct">
+                        </td>
+                        <td>
+                            <input type="checkbox" [(ngModel)]="izekot">
+                        </td>
+                        <td>
+                            <input type="checkbox" [(ngModel)]="izakcz">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izmin">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izmax">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izopis">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="izdekl">
+                        </td>
+                        <td>
+                            <button (click)="izmeni()">izmeni</button>
+                        </td>
+                    </tr>
+                    </table>
+            </mat-tab>
+            <mat-tab label="Cene i stanje robe" >
+               
+                  Izmena robe:
+                  <table>
+                      <tr>
+                          <th>id magacina</th>
+                          <th>naziv magacina</th>
+                          <th>maloprodajna cena</th>
+                          <th>nabavna cena</th>
+                          <th>maksimalna cena</th>
+                          <th>minimalna cena</th>
+                          <th>stanje</th>
+                          <th>sifra artikla</th>
+                          <th></th>
+                          <th></th>
+                      </tr>
+                      <tr *ngFor="let rb of mojeRobe">
+                          <td>{{rb.magacin}}</td>
+                          <td>{{rb.nazivm}}</td>
+                          <td>
+                            <output type="text" *ngIf="!rb.iz"> {{rb.prodajna}}</output>
+                            <input type="text" [(ngModel)]="malp" *ngIf="rb.iz">
+                          </td>
+                          <td> <output type="text" *ngIf="!rb.iz"> {{rb.nabavna}}</output>
+                            <input type="text" [(ngModel)]="nabc" *ngIf="rb.iz"></td>
+                          <td> <output type="text" *ngIf="!rb.iz"> {{rb.max}}</output>
+                            <input type="text" [(ngModel)]="maksIz" *ngIf="rb.iz"></td>
+                          <td> <output type="text" *ngIf="!rb.iz"> {{rb.min}}</output>
+                            <input type="text" [(ngModel)]="minIz" *ngIf="rb.iz"></td>
+                          <td> <output type="text" *ngIf="!rb.iz"> {{rb.stanje}}</output>
+                            <input type="text" [(ngModel)]="stnj" *ngIf="rb.iz"></td>
+                          <td>{{rb.artikal}}</td>
+                          <td> 
+                            <button (click)="izmeniUmag(rb)">izmeni</button>
+                          </td>
+                          <td>
+                            <button (click)="obrisimag(rb)">obrisi</button>
+                          </td>
+                      </tr>
+                  </table>
+            </mat-tab>
+        </mat-tab-group>
+      </div>    
+    
+    </div>
+    <div class="footer">
+        <a routerLink="/preduzece">Vrati se</a>
+        <button (click)="logout()">Odjavi se</button>
+    </div>
+</body>
+<router-outlet></router-outlet>

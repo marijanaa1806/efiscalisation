@@ -1,0 +1,32 @@
+
+.header{
+
+    position: relative;
+    background-color: rgb(28, 231, 187);
+    padding: 10px;
+    text-align: center;
+ 
+    
+}
+.sl{
+  float:left;
+  height: 20px !important;
+  width:20px !important;
+}
+.footer{
+    background-color: aquamarine;
+    padding: 10px;
+    text-align: right;
+
+}
+.card {
+    background-color: rgb(22, 229, 219);
+    padding: 20px;
+    height:100%
+    
+  }
+
+  #el1 {display:inline-block;margin-right:10px;} 
+#el2 {display:inline-block;} 
+#el3 {display:inline-block;margin-right:10px;} 
+#el4 {display:inline-block;} 

@@ -1,0 +1,96 @@
+<div class="header">
+
+</div>
+<div class="card">
+
+    Izaberi magacin:
+    <select [(ngModel)]="nazivm">
+        <option *ngFor="let mag of magac" value="{{mag.naziv}}">{{mag.naziv}}</option>
+    </select>
+    <br>
+    <button (click)="prikazi()">Prikazi stavke</button>
+    <br>
+    <br>
+    <div *ngIf="prikz">
+    <table>
+        <tr>
+            <th>artikal</th>
+            <th>min cena</th>
+            <th>maks cena</th>
+            <th>na stanju</th>
+            <th>unos</th>
+        </tr>
+        <tr *ngFor="let r of robe">
+            <td>{{r.nazAr}}</td>
+            <td>{{r.min}}</td>
+            <td>{{r.max}}</td>
+            <td>{{r.stanje}}</td>
+            <td>
+                <button mat-button (click)="izaberi(r)">Izaberi stavku</button>
+            </td>
+            <td *ngIf="r.selected">
+               <input type="number"name='kol' [(ngModel)]="r.kolicina">
+            </td>
+            <td *ngIf="r.selected">
+                <button mat-button (click)="unesiS(r)">Unesi stavku</button>
+             </td>
+        </tr>
+        
+    </table>
+</div>
+<br>
+<br>
+<button (click)="zatvaranjeRac()"> Zatvaranje racuna</button>
+<div *ngIf="zatvori">
+    Izaberite nacin placanja:
+    <br>
+    <select [(ngModel)]="tipPlacanja">
+        <option name="got" value="Gotovina">Gotovina</option>
+        <option name="cek" value="Cek">Cek</option>
+        <option name="kar" value="Kartica">Kartica</option>
+        <option name="vir" value="Virman">Virman</option>
+
+    </select>
+    <br>
+    <div id="got" *ngIf="tipPlacanja=='Gotovina'">
+        Uneto je novca:
+        <input type="number" [(ngModel)]="dato">
+        <br>
+        <br>
+        
+        <br>
+        Kusur je: <br>
+        {{vrati}}
+    </div>
+    <div id="cek" *ngIf="tipPlacanja=='Cek'"> 
+        Ime:
+        <input type="text" [(ngModel)]="ime">
+        <br>
+        Prezime:
+        <input type="text" [(ngModel)]="prezime">
+        <br>
+        Broj licne karte:
+        <input type="text" [(ngModel)]="brlk">
+        <br>
+    </div>
+    <div id="kar" *ngIf="tipPlacanja=='Kartica'">
+        Broj licne karte:
+        <input type="text" [(ngModel)]="brlk">
+        <br>
+        Slip racuna:
+        <input type="text" [(ngModel)]="slip">
+        <br>
+    </div>
+    <div id="vir" *ngIf="tipPlacanja=='Virman'">
+        <select [(ngModel)]="nar">
+            <option *ngFor="let n of narucioci" value="{{n.preduzece.kor_ime}}">{{n.preduzece.kor_ime}}</option>
+        </select>
+    </div>
+    <button (click)="plati()">Plati</button>
+
+</div>
+</div>
+<div class="footer">
+    <a routerLink="/preduzece">Vrati se</a>
+    <button (click)="logout()">Odjavi se</button>
+</div>

@@ -1,0 +1,170 @@
+
+<body>
+<div class="header">
+  <div class="sl"><img [src]="preduzece.slika"  height="70px !important" 
+    width="70px !important"></div>
+   <h1>Preduzece</h1>
+ 
+    <button mat-button [matMenuTriggerFor]="menu">Meni</button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item  (click)="podaci()">Podaci</button>
+      <button mat-menu-item (click)="nar()">Narucioci</button>
+      <button mat-menu-item (click)="rob()">Robe i usluge</button>
+      <button mat-menu-item (click)="ra()">Raspored artikala</button>
+      <button mat-menu-item (click)="rs()">Raspored stolova</button>
+      <button mat-menu-item (click)="ir()">Izdavanje racuna</button>
+      <button mat-menu-item (click)="izv()">Pregled izvestaja</button>
+    </mat-menu>
+  
+</div>
+<div class="card">
+ <div *ngIf="preduzece.prvi">
+<table>
+    <tr>
+        <td>Kategorija:</td>
+        <td>
+          
+            <select [(ngModel)]='kat'>
+              <option value="ugostitelj">ugostitelj</option>
+              <option value="prodavnica">prodavnica</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Sifra:</td>
+        <td>
+          <select name="sifra" multiple="true"  (change)="dodajSifru($event)">
+              
+            <option *ngFor="let title of sifrarnik" [value]="title">{{title}}</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Da li je u sistemu PDV-a:</td>
+        <td>
+            <input type="checkbox" name="ck" [(ngModel)]="jeste">
+          
+        </td>
+    </tr>
+    <tr>
+        <td>Ziro Racun:</td>
+        <td>
+            Banka
+            <input type="text" name="ck" [(ngModel)]="banka">
+          
+        </td>
+        <td>
+            Broj racuna
+            <input type="text" name="ck" [(ngModel)]="brojrac">
+          
+        </td>
+        <td>
+            Unesi 
+            <button (click)="dodajJosJedan()">Unesi</button>
+        </td>
+    </tr>
+    
+</table>
+
+<b>Magacini</b>
+  <br>
+<input type="text" [(ngModel)]="number1" >
+
+<button (click)="addProperty()">Unesi magacine</button>
+<br>
+<br>
+<div>
+    <div id="el1">
+      ID:
+      <input type="text" [(ngModel)]="id1">
+      <br>
+    <form [formGroup]="dynamicForm">
+        <div formArrayName="properties">
+          <div *ngFor= "let prop of dynamicForm.get('properties').controls; index as idx " >
+            ID:
+            
+            <input type="text" class="form-control"  [formControlName]="idx">
+          
+          </div>
+        </div>
+        </form>
+    </div>
+    <div id="el2">
+      Naziv:
+      <input type="text" [(ngModel)]="naz1">
+      <br>
+        <form [formGroup]="dynamicForm3">
+            <div formArrayName="properties3">
+              <div *ngFor= "let prop of dynamicForm3.get('properties3').controls; index as idx " >
+                Naziv:
+                <input type="text" class="form-control"  [formControlName]="idx">
+              
+              </div>
+            </div>
+            </form>
+        </div>
+</div>
+
+<br>
+<button (click)="pokupiM()">pokupi magacine</button>
+<br>
+<b>Fiskalne kase</b>
+<br>
+<input type="text" [(ngModel)]="number2" >
+
+<button (click)="addProperty2()">Unesi kase</button>
+<br>
+<br>
+<div>
+    <div id="el3">
+      Lokacija:
+      <input type="text" [(ngModel)]="lok1">
+      <br>
+    <form [formGroup]="dynamicForm2" >
+        <div formArrayName="properties2" >
+          <div *ngFor="let prop of dynamicForm2.get('properties2').controls; index as idx " >
+            Lokacija:
+            <input type="text" class="form-control" [formControlName]="idx">
+           
+          </div>
+        </div>
+        </form>
+    </div>
+    <div id="el4">
+      Tip kase:
+      <select [(ngModel)]="tip1" name="kas">
+        <option *ngFor="let title of kase2" [value]="title"> {{title}}</option>
+        </select>
+      <br>
+        <form [formGroup]="dynamicForm4">
+            <div formArrayName="properties4">
+              <div *ngFor="let prop of dynamicForm4.get('properties4').controls; index as idx " >
+                Tip kase:
+                <select class="form-control" [formControlName]="idx">
+                  <option *ngFor="let title of kase2" [value]="title"> {{title}}</option>
+                  </select>
+            
+              </div>
+            </div>
+            </form>
+        </div>
+</div>
+
+<br>
+<button (click)="pokupiK()">pokupi kase</button>
+<br>
+<br>
+Unesi default sliku za artikle:
+<input type="file" (change)="selectFile($event)">
+<br>
+<button (click)="updatePred()">unesiiiii</button>
+</div>
+<div *ngIf="preduzece.ostali"> 
+  <h2> Dobrodosli na stranicu {{preduzece.naziv}}</h2>
+</div>
+</div>
+<div class="footer">
+    <button (click)="logout()">Odjavi se</button>
+</div>
+</body>

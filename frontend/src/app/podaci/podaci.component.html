@@ -1,0 +1,176 @@
+<body>
+    <div class="header">
+        <h1>
+           Podaci o preduzecu
+        </h1>
+       
+    </div>
+    <div class="card">
+        <mat-tab-group>
+            <mat-tab label="Opsti podaci" > 
+                <table>
+                    <tr>
+                        <th>ime</th>
+                       <th>prezime</th>
+                       <th>korisnicko ime</th>
+                       <th>broj</th>
+                       <th>mejl</th>
+                       <th>naziv</th>
+                       <th>adresa
+                       </th>
+                       <th>PIB</th>
+                       <th>maticni broj</th>
+                       <th>odobreno</th>
+                       <th>aktivno</th>
+                       <th>PDV</th>
+                       <th>sifre</th>
+                       <th>Kategorija</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <output type="text" *ngIf="!promena">{{ime}}</output>
+                            <input type="text" [(ngModel)]="imeN" *ngIf="promena">
+                        </td>
+                        <td>
+                            <output type="text" *ngIf="!promena">{{prezime}}</output>
+                            <input type="text" [(ngModel)]="prezN" *ngIf="promena">
+                        </td>
+                        <td>
+                            {{pred.kor_ime}}
+                        </td>
+                        <td>
+                            <output type="text" *ngIf="!promena">{{broj}}</output>
+                            <input type="text" [(ngModel)]="brojN" *ngIf="promena">
+                        </td>
+                        <td>
+                            <output type="text" *ngIf="!promena">{{mejl}}</output>
+                            <input type="text" [(ngModel)]="mejlN" *ngIf="promena">
+                        </td>
+                        <td>
+                            {{pred.naziv}}
+                        </td>
+                        <td>
+                            {{pred.adresa}}
+                        </td>
+                        <td>{{pred.PIB}}</td>
+                        <td>{{pred.matBr}}</td>
+                        <td>{{pred.odobreno}}</td>
+                        <td>{{pred.aktivno}}</td>
+                        <td>
+                            <output *ngIf="!promena">{{pred.pdv}}</output>
+                            <input type="checkbox" [(ngModel)]="pdvN" checked="pred.pdv" *ngIf="promena">
+                        </td>
+                        <td>
+                            <output *ngIf="!promena">
+                                <ul>
+                                    <li *ngFor="let sif of pred.sifre" value="sif">{{sif}}</li>
+                                </ul>
+                            </output>
+                            <select name="sifra" multiple="true"  (change)="dodajSifru($event)" *ngIf="promena">
+              
+                                <option *ngFor="let title of sifrarnik" [value]="title">{{title}}</option>
+                            </select>
+                        </td>
+                        <td> <output *ngIf="!promena">{{pred.kategorije}}</output>
+                            <select [(ngModel)]='katN' *ngIf="promena">
+                                <option value="ugostitelj">ugostitelj</option>
+                                <option value="prodavnica">prodavnica</option>
+                              </select>
+                        </td>
+                        
+                        
+                    </tr>
+                </table>
+                <button (click)="promenaPod()">promeni</button>
+            
+            </mat-tab>
+            <mat-tab label="Ziro racuni" > <table>
+                <tr>
+                   
+                    <th>banka</th>
+                   <th>broj racuna</th>
+                   <th></th>
+                   
+                </tr>
+                <tr *ngFor="let n of pred.ziro">
+                    <td>
+                        <output type="text" *ngIf="!n.iz"> {{n.banka}}</output>
+                        <input type="text" *ngIf="n.iz" [(ngModel)]="novBank">
+                    </td>
+                    <td>
+                        <output type="text" *ngIf="!n.iz">  {{n.brojR}}</output>
+                        <input type="text" *ngIf="n.iz" [(ngModel)]="novBr">
+                    </td>
+                    <td>
+                        <button (click)="izmZ(n)">izmeni</button>
+                    </td>
+                   
+                    
+                </tr>
+            </table> </mat-tab>
+            <mat-tab label="Magacini i kase" > 
+                Magacini 
+                <br>
+                <table>
+                    <tr>
+                       
+                        <th>id</th>
+                       <th>naziv</th>
+                       <th></th>
+                       
+                    </tr>
+                    <tr *ngFor="let n of pred.magacini">
+                        <td>
+                            <output type="text" *ngIf="!n.iz">  {{n.id}}</output>
+                          <input type="text" *ngIf="n.iz" [(ngModel)]="novId">
+
+                        </td>
+                        <td>   <output type="text" *ngIf="!n.iz">  {{n.naziv}}</output>
+                            <input type="text" *ngIf="n.iz" [(ngModel)]="novNaz"></td>
+                        <td>
+                            <button (click)="izm(n)">izmeni</button>
+                        </td>
+                       
+                        
+                    </tr>
+                </table>
+                <br>
+                kase<br>
+                <table>
+                    <tr>
+                       
+                        <th>lokacija</th>
+                       <th>tip</th>
+                       <th></th>
+                       
+                    </tr>
+                    <tr *ngFor="let n of pred.kase">
+                        <td>
+                            <output type="text" *ngIf="!n.iz"> {{n.lokacija}}</output>
+                            <input type="text" *ngIf="n.iz" [(ngModel)]="novLok">
+  
+                        </td>
+                        <td>
+                            <output type="text" *ngIf="!n.iz">{{n.tip}}</output>
+                            <input type="text" *ngIf="n.iz" [(ngModel)]="novTip">
+  
+                        </td>
+                        <td>
+                            <button (click)="izmK(n)">izmeni</button>
+                        </td>
+                       
+                        
+                    </tr>
+                </table>
+
+                
+            
+            
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+    <div class="footer">
+        <a routerLink="/preduzece">Vrati se</a>
+        <button (click)="logout()">Odjavi se</button>
+    </div>
+</body>

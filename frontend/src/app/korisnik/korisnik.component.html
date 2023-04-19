@@ -1,0 +1,86 @@
+<body>
+    <div class="header">
+        <h1>Korisnik</h1>
+    </div>
+    <div class="card">
+<table>
+    <tr>
+       
+        <th class="thk">Naziv</th>
+        <th class="thk">Artikli<br>
+           Lokacije | Minimalna cena | Proizvodjac
+          
+        </th>
+       
+
+    </tr>
+    <tr *ngFor="let n of svaPreduzeca">
+        <td class="thd">{{n.naziv}}</td>
+        <td class="thd">
+                <div *ngFor="let st of n.artikli" class="ccc">{{st.naziv}}  <br>
+                    {{nadji(st.sifra,n.kor_ime)}}
+                    <td>
+                        
+                        
+                            <div *ngFor="let l of lokacije"> {{l}} </div>
+                    </td>
+                    <td>
+                      
+                    {{minc(st.sifra,n.kor_ime)}}
+                    <div *ngFor="let mc of mincena" >{{mc}} din</div>
+                    </td> 
+                   
+                    <td> 
+                       {{st.proizvodjac}}
+                    </td>
+                </div>
+              
+        </td>
+       
+       
+        
+    </tr>
+</table>
+Unesi naziv za pretragu:
+<br>
+<input type="text" [(ngModel)]="pretraga">
+<button (click)="pretrazi()">nadji</button>
+<br>
+<div *ngIf="pr">
+    Pronadjeni artikli:
+    <table>
+        <tr>
+            <th class="thk">Artikli</th>
+            <th class="thk">Preduzece | Lokacija | Cena | Proizvodjac</th>
+        </tr>
+        <tr *ngFor="let n of nadjeni">
+            <td class="thd">{{n.naziv}}</td>
+            <td class="thd">
+            <div>
+                <td>{{n.pred}}</td>
+               <td>
+                <div *ngFor="let lok of n.lokacije">{{lok}}</div> 
+              </td>
+              <td>
+                <div *ngFor="let min of n.mincene">{{min}} din </div>
+              </td>
+              <td>
+                <div *ngFor="let p of n.proiz">{{p}} </div>
+              </td>
+           </div>
+              
+            </td>
+        </tr>
+    </table>
+<br>
+
+</div>
+<a routerLink="/pregled">Pregled mojih racuna</a>
+</div>
+<div class="footer">
+    <a routerLink="/promeni">Promena lozinke</a>
+<button (click)="logout()">Odjavi se</button>
+</div>
+
+</body>
+

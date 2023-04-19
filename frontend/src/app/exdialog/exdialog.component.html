@@ -1,0 +1,56 @@
+
+<div mat-dialog-title>Izaberi artikle</div>
+<div mat-dialog-content>
+    Filtriranje artikala
+    <br>
+    <input type="text" [(ngModel)]="naz">
+    <button mat-button (click)="pretraga()">Pretrazi</button>
+    
+    <br>
+    <div *ngIf="pr">
+        <table class="tabsl">
+            <thead>
+            <tr>
+    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ar of filtrirani">
+                <td>{{ar.naziv}}</td>
+                <td>
+                    <button mat-button (click)="dod(ar)">dodeli</button>
+                </td>
+            </tr>
+            
+        </tbody>
+        </table>
+       
+
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <table class="tabsl" *ngIf="!pr">
+        <thead>
+        <tr>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ar of podaci">
+            <td>{{ar.naziv}}</td>
+            <td>
+                <button mat-button (click)="dod(ar)">dodeli</button>
+            </td>
+        </tr>
+        
+    </tbody>
+    </table>
+   
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Otkazi</button>
+  
+</div>

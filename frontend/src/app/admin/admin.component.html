@@ -1,0 +1,248 @@
+<body>
+    <div class="header">
+        <h1>Administrator</h1>
+    </div>
+    <div class="card">
+
+<h2>Unos preduzeca</h2>
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type='text' name='kor_imeR' [(ngModel)]='kor_imeR'>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type='password' name='lozinkaR' [(ngModel)]='lozinkaR' >
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrda Lozinke:</td>
+        <td>
+            <input type='password' name='lozinka' [(ngModel)]='lozinkaR2' >
+        </td>
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type='text' name='ime' [(ngModel)]='imeR'>
+        </td>
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type='text' name='prez' [(ngModel)]='prezimeR'>
+        </td>
+    </tr>
+    <tr>
+        <td>E-mail:</td>
+        <td>
+            <input type='email' name='mejl' [(ngModel)]='mejlR'>
+        </td>
+    </tr>
+    <tr>
+        <td>Broj telefona:</td>
+        <td>
+            <input type='text' name='br' [(ngModel)]='brojR'>
+        </td>
+    </tr>
+    <tr>
+        <td>Naziv preduzeca:</td>
+        <td>
+            <input type='text' name='naz' [(ngModel)]='nazivR'>
+        </td>
+    </tr>
+    <tr>
+        <td>Drzava:</td>
+        <td>
+            <input type='text' name='adre' [(ngModel)]='drzava'>
+        </td>
+    </tr>
+    <tr>
+        <td>Grad:</td>
+        <td>
+            <input type='text' name='adre' [(ngModel)]='grad'>
+        </td>
+    </tr>
+    <tr>
+        <td>Postanski broj:</td>
+        <td>
+            <input type='text' name='adre' [(ngModel)]='posbr'>
+        </td>
+    </tr>
+    <tr>
+        <td>Ulica:</td>
+        <td>
+            <input type='text' name='adre' [(ngModel)]='ulica'>
+        </td>
+    </tr>
+    <tr>
+        <td>Broj:</td>
+        <td>
+            <input type='text' name='adre' [(ngModel)]='ubroj'>
+        </td>
+    </tr>
+    <tr>
+        <td>PIB:</td>
+        <td>
+            <input type='text' name='pib' [(ngModel)]='pib'>
+        </td>
+    </tr>
+    <tr>
+        <td>Maticni broj:</td>
+        <td>
+            <input type='text' name='mat' [(ngModel)]='mat'>
+        </td>
+    </tr>
+    <tr>
+        <input type="file" (change)="selectFile($event)">
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)="registruj()">Registracija</button>
+        </td>
+    </tr>
+</table>
+<h2>Unos kupca</h2>
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type='text' name='kor_imeR' [(ngModel)]='kor_imeR1'>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type='password' name='lozinkaR' [(ngModel)]='lozinkaR1' >
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrda Lozinke:</td>
+        <td>
+            <input type='password' name='lozinka' [(ngModel)]='lozinkaR21' >
+        </td>
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type='text' name='ime' [(ngModel)]='imeR1'>
+        </td>
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type='text' name='prez' [(ngModel)]='prezimeR1'>
+        </td>
+    </tr>
+    <tr>
+        <td>Broj licne karte:</td>
+        <td>
+            <input type='text' name='bre' [(ngModel)]='brLk'>
+        </td>
+    </tr>
+    <tr>
+        <td>Broj telefona:</td>
+        <td>
+            <input type='text' name='br' [(ngModel)]='brojR1'>
+        </td>
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)="unos()">Unesi kupca</button>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+       
+        <th class="thk">naziv</th>
+       <th class="thk">odobreno</th>
+       <th class="thk">aktivno</th>
+       <th class="thk">prihvati
+       </th>
+       <th class="thk">odbij</th>
+       <th class="thk">de/aktiviraj</th>
+    </tr>
+    <tr *ngFor="let n of svaPreduzeca">
+        <td class="thd">{{n.naziv}}</td>
+        <td class="thd">{{n.odobreno}}</td>
+        <td class="thd">{{n.aktivno}}</td>
+        <td class="thd">
+            <button (click)="prihvati(n.PIB)" [hidden]="n.odobreno">prihvati</button>
+        </td>
+        <td class="thd">
+            <button (click)="odbij(n.PIB)" [hidden]="!n.odobreno">odbij</button>
+        </td>
+        <td class="thd">
+            <div [hidden]="n.aktivno">
+                <button (click)="aktiviraj(n.PIB)">Aktiviraj</button>
+            </div>
+           <div [hidden]="!n.aktivno">
+            <button  (click)="deaktiviraj(n.PIB)">Deaktiviraj</button>
+           </div>
+           
+        </td>
+        
+    </tr>
+</table>
+<br>
+<br>
+<h2>Pregled dnevnih izvestaja</h2>
+<h3>Svi izvestaji</h3>
+<table>
+    <table>
+        <tr> 
+            <th class="thk">preduzece</th> 
+            <th class="thk">datum</th>
+            <th class="thk">iznos</th> 
+            <th class="thk">porez</th>
+        </tr>
+        <tr *ngFor="let pazar of svip"> 
+            <td class="thd"> {{pazar.pred}}</td>
+            <td class="thd"> {{pazar.datum}}</td>
+            <td class="thd"> {{pazar.iznos}} </td>
+             <td class="thd"> {{pazar.porez}}</td>
+    </tr>
+    </table>
+</table>
+<br>
+Naziv preduzeca:
+<input type="text" [(ngModel)]="nazP">
+<br>
+PIB preduzeca:
+<input type="text" [(ngModel)]="pibP">
+<br>
+Datum od:
+<input type="text" [(ngModel)]="datumOd" required>
+<br>
+Datum do:
+<input type="text" [(ngModel)]="datumDo" required>
+<br>
+<button (click)="pregledaj()">Pregledaj</button>
+<table *ngIf="pr">
+
+    <table>
+        <tr> 
+            <th class="thk">preduzece</th> 
+            <th class="thk">datum</th>
+            <th class="thk">iznos</th> 
+            <th class="thk">porez</th>
+        </tr>
+        <tr *ngFor="let pazar of Pazari"> 
+            <td class="thd"> {{pazar.pred}}</td>
+            <td class="thd"> {{pazar.datum}}</td>
+            <td class="thd"> {{pazar.iznos}} </td>
+        <td class="thd"> {{pazar.porez}}</td>
+    </tr>
+    </table>
+</table>
+</div>
+<div class="footer">
+    <a routerLink="/promeni">Promena lozinke</a>
+<button (click)="logout()">Odjavi se</button>
+</div>
+</body>
+
